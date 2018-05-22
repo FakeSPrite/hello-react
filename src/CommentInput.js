@@ -4,7 +4,7 @@ class CommentInput extends Component {
     constructor () {
         super()
         this.state = {
-            username: 'sss',
+            username: '',
             content: ''
         }
     }

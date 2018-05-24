@@ -5,26 +5,33 @@ import CommentList from './CommentList'
 class CommentApp extends Component {
     constructor () {
         super()
-        this.state = {
-            username: '',
-            content: ''
-        }
+        // this.state = {
+        //    comments:[]
+        // }
+    }
+    static defaultProps = {
+        comments: []
     }
     handleSubmitComment (comment) {
-        console.log(comment)
-        this.setState({
-            username: comment.username
-        })
+        if(this.props.onSub)
+        {
+            this.props.onSub(comment)
+        }
+        // this.state.comments.push(comment);
+        // this.setState({
+        //     comments:  this.state.comments
+        // })
     }
     render() {
         return (
             <div className='wrapper'>
                 <CommentInput
-                    onSubmit={this.handleSubmitComment.bind(this)} />
-                <CommentList comment={this.state.username}/>
+                    onSubmit={this.handleSubmitComment.bind(this)}  />
+                <CommentList comments={this.props.comments}/>
             </div>
         )
     }
 }
+//this.state.comments
 
 export default CommentApp

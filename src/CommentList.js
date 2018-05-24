@@ -3,9 +3,14 @@ import Comment from './Comment'
 
 class CommentList extends Component {
     render() {
-        return (
-            <div><Comment comment={this.props.username}/></div>
-        )
+
+            return (
+                <div>
+                { this.props.comments.map((comment, i) =>
+                <div><Comment comment={comment} key={i}/></div>
+                )}
+                </div>
+            )
     }
 }
 

@@ -1,28 +1,29 @@
 import React, { Component } from 'react'
-import CommentList from "./CommentList";
+// import CommentList from "./CommentList";
 
 
 class Comment extends Component {
-    commentData = [
-        {'username':'Anvis','content':'this is nice'},
-        {'username':'Anvis','content':'this is nice'},
-        {'username':'Anvis','content':'this is nice'},
-    ]
-    static defaultProps = {
-        comment: []
-    }
+    // commentData = [
+    //     {'username':'Anvis','content':'this is nice'},
+    //     {'username':'Anvis','content':'this is nice'},
+    //     {'username':'Anvis','content':'this is nice'},
+    // ]
+    // static defaultProps = {
+    //     comment: []
+    // }
 
     render() {
 
         return (
-            <div>{this.commentData.map((comment, i) => {
-                return (
-                    <div key={i}>
-                        {comment.username}：{comment.content}
-                        {console.log(this.props.comment)}
+            <div>
+                    <div className='comment' >
+                        <div className='comment-user' >
+                            <span>{this.props.comment.username}：</span>
+                        </div>
+                        <div><p>{this.props.comment.content}</p>
                     </div>
-                )
-            })}</div>
+                    </div>
+         </div>
         )
     }
 }

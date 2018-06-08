@@ -2,15 +2,29 @@ import React, { Component } from 'react'
 import Comment from './Comment'
 
 class CommentList extends Component {
-    render() {
+    static defaultProps = {
+        comments: []
+    }
 
-            return (
-                <div>
-                { this.props.comments.map((comment, i) =>
-                <div><Comment comment={comment} key={i}/></div>
+    handleDeleteComment (index) {
+        // console.log(index);
+        if (this.props.onDeleteComment) {
+            this.props.onDeleteComment(index)
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                {this.props.comments.map((comment, i) =>
+                    <Comment comment={comment}
+                             key={i}
+                             index={i}
+                             onDeleteComment={this.handleDeleteComment.bind(this)}
+                    />
                 )}
-                </div>
-            )
+            </div>
+        )
     }
 }
 
